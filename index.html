@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时尚渐变边框按钮链接</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            width: 100%;
+            gap: 50px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #ff6b6b, #5ee7df, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 18px;
+            font-weight: 300;
+            opacity: 0.8;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        .button-link {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-decoration: none;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            text-align: center;
+            height: 200px;
+        }
+        
+        .button-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            padding: 3px;
+            background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.3), transparent 70%);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .button-link:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
+        }
+        
+        .button-link:hover::before {
+            background: var(--gradient);
+            padding: 4px;
+        }
+        
+        .button-icon {
+            font-size: 36px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .button-link:hover .button-icon {
+            transform: scale(1.2);
+        }
+        
+        .button-text {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .button-desc {
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.8;
+            max-width: 200px;
+        }
+        
+        .button-1 {
+            --gradient: linear-gradient(135deg, #ff6b6b, #ffa36c);
+        }
+        
+        .button-2 {
+            --gradient: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+        
+        .button-3 {
+            --gradient: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .button-4 {
+            --gradient: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .buttons-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .button-link {
+                height: 160px;
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>时尚渐变边框按钮</h1>
+            <p></p>
+        </div>
+        
+        <div class="buttons-grid">
+            <a href="#简约" class="button-link button-1">
+                <div class="button-icon">
+                    <i class="fas fa-feather-alt"></i>
+                </div>
+                <div class="button-text">简约</div>
+                <div class="button-desc"></div>
+            </a>
+            
+            <a href="#时尚" class="button-link button-2">
+                <div class="button-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="button-text">时尚</div>
+                <div class="button-desc"></div>
+            </a>
+            
+            <a href="#优雅" class="button-link button-3">
+                <div class="button-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="button-text">优雅</div>
+                <div class="button-desc"></div>
+            </a>
+            
+            <a href="#现代" class="button-link button-4">
+                <div class="button-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="button-text">现代</div>
+                <div class="button-desc"></div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p></p>
+        </div>
+    </div>
+    
+    <script>
+        // 添加点击效果
+        document.querySelectorAll('.button-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // 在实际应用中，这里会进行页面导航
+                // 在此演示中，我们只是添加一个点击反馈
+                this.style.transform = 'translateY(-8px)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-12px)';
+                }, 150);
+                
+                // 在实际应用中，取消下面这行注释以允许导航
+                // e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
